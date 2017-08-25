@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Linq;
-using jsreport.Client;
 using System.Collections.Generic;
 using jsreport.Types;
 
