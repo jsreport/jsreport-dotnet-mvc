@@ -20,7 +20,11 @@ namespace jsreport.MVC
 
         public virtual void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            filterContext.HttpContext.Items["jsreportFeature"] = new JsReportFeature(filterContext.HttpContext);
+            // the report can use action to render partial view
+            if (filterContext.HttpContext.Items["jsreportFeature"] == null)
+            {
+                filterContext.HttpContext.Items["jsreportFeature"] = new JsReportFeature(filterContext.HttpContext);
+            }
         }
 
         public virtual void OnActionExecuted(ActionExecutedContext filterContext)
