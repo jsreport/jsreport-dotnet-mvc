@@ -60,7 +60,10 @@ namespace jsreport.MVC
                                                Report report)
         {
             context.HttpContext.Response.ContentType = report.Meta.ContentType;
-            context.HttpContext.Response.Headers["Content-Disposition"] = report.Meta.ContentDisposition;           
+            if (report.Meta.ContentDisposition != null)
+            {
+                context.HttpContext.Response.Headers["Content-Disposition"] = report.Meta.ContentDisposition;
+            }
         }       
 
         protected virtual bool ShouldUseJsReport(ActionExecutedContext filterContext, out EnableJsReportAttribute attr)
